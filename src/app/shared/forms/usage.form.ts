@@ -14,7 +14,7 @@ enum UsageStatusType {
     billed
 }
 
-export function getUsageForm(): FormGroup{
+export function getUsageForm(): FormGroup {
     return new FormGroup ({
         id: new FormControl(),
         href: new FormControl(),

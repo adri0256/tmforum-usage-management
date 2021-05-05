@@ -1,6 +1,6 @@
 import { FormControl } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
-import { getCharacteristicRelationship } from './characteristicRelationShip.form';
+import { getCharacteristicRelationship } from './characteristicRelationship.form';
 
 export function getUsageCharacteristic(): FormGroup {
     return new FormGroup({
