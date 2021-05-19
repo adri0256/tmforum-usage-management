@@ -1,0 +1,146 @@
+<app-container *ngIf="form" [formGroup]="form">
+  <mat-card class="margin-bottom">
+    <mat-card-header>
+      <mat-card-title>Identifier</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          <mat-icon mat-list-icon>lock</mat-icon>
+          <div mat-line> ID </div>
+          <div mat-line> {{form.value.id}} </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="margin-bottom">
+    <mat-card-header>
+      <mat-card-title>Data</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table class="max-width margin-bottom" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="max-width">
+              <mat-label>Path</mat-label>
+              <input type="text" name="href" matInput formControlName="href" />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="max-width">
+              <mat-label>Usage Date</mat-label>
+              <input type="text" formControlName="usageDate" name="usageDate" matInput />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="max-width">
+              <mat-label>Description</mat-label>
+              <input type="text" formControlName="description" name="description" matInput />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="max-width">
+              <mat-label>Usage Type</mat-label>
+              <input type="text" formControlName="usageType" name="usageType" matInput />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="max-width">
+              <!--mat-label>Status</!--mat-label>
+              <input type="text" formControlName="status" name="status" matInput /-->
+              <mat-label>Select</mat-label>
+              <mat-select formControlName="status" name="status">
+                <mat-option *ngFor="let option of enumKeys" [value]="option">{{usageEnum[option]}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="max-width">
+              <mat-label>Base Type</mat-label>
+              <input type="text" formControlName="baseType" name="baseType" matInput />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="max-width">
+              <mat-label>Schema Location</mat-label>
+              <input type="text" formControlName="schemaLocation" name="schemaLocation" matInput />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="max-width">
+              <mat-label>Type</mat-label>
+              <input type="text" formControlName="type" name="type" matInput />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="margin-bottom" formArrayName = "ratedProductUsage">
+    <mat-card-header>
+      <mat-card-title>Porduct Usage</mat-card-title> 
+    </mat-card-header>
+    <mat-card-content>
+      <button mat-raised-button color="secondary" class="max-width margin-bottom" (click)="addNewRatedProduct()">
+        Add New
+      </button>
+      <span *ngFor="let RatedProductItem of getRatedProductUsageForm.controls; let i = index" class="max-width" style="display: flex;">
+        <mat-accordion [formGroupName]="i">
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title style = "flex: 1 1; justify-content: center; align-items: center;">
+                Rated Product Usage #{{i + 1}}
+                <button mat-icon-button color="warn" (click)="removeRatedProduct(i)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <app-rated-product-usage [form] = form [formArrayIndex] = i></app-rated-product-usage>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </span>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="margin-bottom" formArrayName = "relatedParty">
+    <mat-card-header>
+      <mat-card-title>Related Party</mat-card-title> 
+    </mat-card-header>
+    <mat-card-content>
+      <button mat-raised-button color="secondary" class="max-width margin-bottom" (click)="addNewRelatedParty()">
+        Add New
+      </button>
+      <span *ngFor="let RelatedPartyItem of getRelatedPartyForm.controls; let i = index" class="max-width" style="display: flex;">
+        <mat-accordion [formGroupName]="i">
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title style = "flex: 1 1; justify-content: center; align-items: center;">
+                Related Party #{{i + 1}}
+                <button mat-icon-button color="warn" (click)="removeRelatedParty(i)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <app-related-party [form] = form [formArrayIndex] = i></app-related-party>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </span>
+    </mat-card-content>
+  </mat-card>
+
+  <button mat-button (click)="log()">log</button>
+</app-container>

@@ -1,0 +1,86 @@
+<table *ngIf="form" [formGroup]="form">
+    <ng-container formArrayName = "relatedParty">
+        <ng-container formGroupName = {{formArrayIndex}}>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>
+                            Href
+                        </mat-label>
+                        <input type="text" formControlName="href" name="href" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>
+                            ID
+                        </mat-label>
+                        <input type="text" formControlName="id" name="id" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>
+                            Name
+                        </mat-label>
+                        <input type="text" formControlName="name" name="name" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>
+                            Role
+                        </mat-label>
+                        <input type="text" formControlName="role" name="role" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>
+                            Base Type
+                        </mat-label>
+                        <input type="text" formControlName="baseType" name="baseType" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>
+                            Refered Type
+                        </mat-label>
+                        <input type="text" formControlName="referedType" name="referedType" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>
+                            Schema Location
+                        </mat-label>
+                        <input type="text" formControlName="schemaLocation" name="schemaLocation" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>
+                            Type
+                        </mat-label>
+                        <input type="text" formControlName="type" name="type" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+        </ng-container>
+    </ng-container>
+</table>

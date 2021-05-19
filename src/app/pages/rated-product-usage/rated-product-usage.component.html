@@ -1,0 +1,219 @@
+<table *ngIf="form" [formGroup]="form">
+    <ng-container formArrayName = "ratedProductUsage">
+        <ng-container formGroupName = {{formArrayIndex}}>
+        
+    
+    <tr>
+    <mat-label>Bucket Value Converted In Amount</mat-label>
+    </tr>
+    <tr formGroupName="bucketValueConvertedInAmount">
+        <td>
+        <mat-form-field>
+        <mat-label>Value</mat-label>
+        <input type="text" formControlName="value" name="value" matInput />  
+        </mat-form-field>
+        </td>
+        <td>
+        <mat-form-field>
+            <mat-label>Unit</mat-label>
+            <input type="text" formControlName="unit" name="unit" matInput />  
+        </mat-form-field>
+        </td>
+    </tr>
+    <tr>
+    <td>
+        <label>Billed</label>
+    </td>
+    <td style="flex: 1; padding-left: 8px;">
+        <mat-radio-group formControlName="isBilled" class="max-width">
+        <mat-radio-button value="1">Yes</mat-radio-button>
+        <mat-radio-button value="0">No</mat-radio-button>
+        </mat-radio-group>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <label>Tax Exempt</label>
+    </td>
+    <td style="flex: 1; padding-left: 8px;">
+        <mat-radio-group formControlName="isTaxExempt" class="max-width">
+        <mat-radio-button value="1">Yes</mat-radio-button>
+        <mat-radio-button value="0">No</mat-radio-button>
+        </mat-radio-group>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <mat-form-field class="max-width">
+        <mat-label>Offer Tariff Type</mat-label>
+        <input type="text" formControlName="offerTariffType" name="type" matInput />
+        </mat-form-field>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <mat-form-field class="max-width">
+        <mat-label>Rating Amount Type</mat-label>
+        <input type="text" formControlName="ratingAmountType" name="type" matInput />
+        </mat-form-field>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <mat-form-field class="max-width">
+        <mat-label>Rating Amount Type</mat-label>
+        <input type="text" formControlName="ratingAmountType" name="type" matInput />
+        </mat-form-field>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <mat-form-field appearance="fill" class="max-width">
+        <mat-label>Rating Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="ratingDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </td>
+    </tr>
+    <tr>
+    <mat-label>Tax Excluded Rating Amount</mat-label>
+    </tr>
+    <tr formGroupName="taxExcludedRatingAmount">
+        <td>
+        <mat-form-field>
+        <mat-label>Value</mat-label>
+        <input type="text" formControlName="value" name="value" matInput />  
+        </mat-form-field>
+        </td>
+        <td>
+        <mat-form-field>
+            <mat-label>Unit</mat-label>
+            <input type="text" formControlName="unit" name="unit" matInput />  
+        </mat-form-field>
+        </td>
+    </tr>
+    <tr>
+    <mat-label>Tax Included Rating Amount</mat-label>
+    </tr>
+    <tr formGroupName="taxIncludedRatingAmount">
+        <td>
+        <mat-form-field>
+        <mat-label>Value</mat-label>
+        <input type="text" formControlName="value" name="value" matInput />  
+        </mat-form-field>
+        </td>
+        <td>
+        <mat-form-field>
+            <mat-label>Unit</mat-label>
+            <input type="text" formControlName="unit" name="unit" matInput />  
+        </mat-form-field>
+        </td>
+    </tr>
+    <tr>
+    <td>
+        <mat-form-field class="max-width">
+        <mat-label>Tax Rate</mat-label>
+        <input type="text" formControlName="taxRate" name="taxRate" matInput />
+        </mat-form-field>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <mat-form-field class="max-width">
+        <mat-label>Usage Rating Tag</mat-label>
+        <input type="text" formControlName="usageRatingTag" name="usageRatingTag" matInput />
+        </mat-form-field>
+    </td>
+    </tr>
+    <tr>
+    <td formArrayName="productRef">
+        <mat-label>Refered Type</mat-label>
+        <table formArrayName="0">
+            <tr>
+                <td>
+                    <mat-form-field class="max-width">
+                    <mat-label>id</mat-label>
+                    <input type="text" formControlName="id" name="id" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="max-width">
+                    <mat-label>href</mat-label>
+                    <input type="text" formControlName="href" name="href" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="max-width">
+                    <mat-label>Name</mat-label>
+                    <input type="text" formControlName="name" name="name" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="max-width">
+                    <mat-label>Base Type</mat-label>
+                    <input type="text" formControlName="baseType" name="baseType" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="max-width">
+                    <mat-label>Refered Type</mat-label>
+                    <input type="text" formControlName="referedType" name="referedType" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="max-width">
+                    <mat-label>Schema Location</mat-label>
+                    <input type="text" formControlName="schemaLocation" name="schemaLocation" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="max-width">
+                    <mat-label>Type</mat-label>
+                    <input type="text" formControlName="type" name="type" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <hr />
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <mat-form-field class="max-width">
+        <mat-label>Base Type</mat-label>
+        <input type="text" formControlName="baseType" name="baseType" matInput />
+        </mat-form-field>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <mat-form-field class="max-width">
+        <mat-label>Schema Location</mat-label>
+        <input type="text" formControlName="schemaLocation" name="schemaLocation" matInput />
+        </mat-form-field>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <mat-form-field class="max-width">
+        <mat-label>Type</mat-label>
+        <input type="text" formControlName="type" name="type" matInput />
+        </mat-form-field>
+    </td>
+    </tr>
+</ng-container>
+</ng-container>
+</table>
