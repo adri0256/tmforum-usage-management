@@ -1,0 +1,141 @@
+<table *ngIf="form" [formGroup]="form">
+    <ng-container formArrayName = "usageCharacteristic">
+        <ng-container formGroupName = {{formArrayIndex}}>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>
+                            ID
+                        </mat-label>
+                        <input type="text" formControlName="id" name="id" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>
+                            Name
+                        </mat-label>
+                        <input type="text" formControlName="name" name="name" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>
+                            Value
+                        </mat-label>
+                        <input type="text" formControlName="value" name="value" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>
+                            Value Type
+                        </mat-label>
+                        <input type="text" formControlName="valueType" name="valueType" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <!--Characteristic RelationShip-->
+            <tr formArrayName="characteristicRelationship">
+                <table formArrayName="0">
+                    <tr>
+                        <td>
+                            <mat-form-field>
+                                <mat-label>
+                                    ID
+                                </mat-label>
+                                <input type="text" formControlName="id" name="id" matInput />
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field>
+                                <mat-label>
+                                    Href
+                                </mat-label>
+                                <input type="text" formControlName="href" name="href" matInput />
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field>
+                                <mat-label>
+                                    Relationship Type
+                                </mat-label>
+                                <input type="text" formControlName="relationshipType" name="relationshipType" matInput />
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field>
+                                <mat-label>
+                                    Base Type
+                                </mat-label>
+                                <input type="text" formControlName="baseType" name="baseType" matInput />
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field>
+                                <mat-label>
+                                    Schema Location
+                                </mat-label>
+                                <input type="text" formControlName="schemaLocation" name="schemaLocation" matInput />
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field>
+                                <mat-label>
+                                    Type
+                                </mat-label>
+                                <input type="text" formControlName="type" name="type" matInput />
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                </table>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>
+                            Base Type
+                        </mat-label>
+                        <input type="text" formControlName="baseType" name="baseType" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>
+                            Schema Location
+                        </mat-label>
+                        <input type="text" formControlName="schemaLocation" name="schemaLocation" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>
+                            Type
+                        </mat-label>
+                        <input type="text" formControlName="type" name="type" matInput />
+                    </mat-form-field>
+                </td>
+            </tr>
+        </ng-container>
+    </ng-container>
+</table>

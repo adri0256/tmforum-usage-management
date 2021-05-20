@@ -8,39 +8,45 @@
     </tr>
     <tr formGroupName="bucketValueConvertedInAmount">
         <td>
-        <mat-form-field>
-        <mat-label>Value</mat-label>
-        <input type="text" formControlName="value" name="value" matInput />  
-        </mat-form-field>
+            <mat-form-field>
+                <mat-label>Value</mat-label>
+                <input type="text" formControlName="value" name="value" matInput />  
+            </mat-form-field>
         </td>
+    </tr>
+    <tr formGroupName="bucketValueConvertedInAmount">
         <td>
-        <mat-form-field>
-            <mat-label>Unit</mat-label>
-            <input type="text" formControlName="unit" name="unit" matInput />  
-        </mat-form-field>
+            <mat-form-field>
+                <mat-label>Unit</mat-label>
+                <input type="text" formControlName="unit" name="unit" matInput />  
+            </mat-form-field>
         </td>
     </tr>
     <tr>
     <td>
         <label>Billed</label>
     </td>
-    <td style="flex: 1; padding-left: 8px;">
-        <mat-radio-group formControlName="isBilled" class="max-width">
-        <mat-radio-button value="1">Yes</mat-radio-button>
-        <mat-radio-button value="0">No</mat-radio-button>
-        </mat-radio-group>
-    </td>
+    </tr>
+    <tr>
+        <td style="flex: 1; padding: 0 0 8px 0;">
+            <mat-radio-group formControlName="isBilled" class="max-width">
+            <mat-radio-button style="padding: 0 .8em 0 0" value="1">Yes</mat-radio-button>
+            <mat-radio-button style="padding: 0 0 0 .8em" value="0">No</mat-radio-button>
+            </mat-radio-group>
+        </td>
     </tr>
     <tr>
     <td>
         <label>Tax Exempt</label>
     </td>
-    <td style="flex: 1; padding-left: 8px;">
-        <mat-radio-group formControlName="isTaxExempt" class="max-width">
-        <mat-radio-button value="1">Yes</mat-radio-button>
-        <mat-radio-button value="0">No</mat-radio-button>
-        </mat-radio-group>
-    </td>
+    </tr>
+    <tr>
+        <td style="flex: 1; padding: 0 0 8px 0;">
+            <mat-radio-group formControlName="isTaxExempt" class="max-width">
+                <mat-radio-button style="padding: 0 .8em 0 0" value="1">Yes</mat-radio-button>
+                <mat-radio-button style="padding: 0 0 0 .8em" value="0">No</mat-radio-button>
+            </mat-radio-group>
+        </td>
     </tr>
     <tr>
     <td>
@@ -81,16 +87,18 @@
     </tr>
     <tr formGroupName="taxExcludedRatingAmount">
         <td>
-        <mat-form-field>
-        <mat-label>Value</mat-label>
-        <input type="text" formControlName="value" name="value" matInput />  
-        </mat-form-field>
+            <mat-form-field>
+            <mat-label>Value</mat-label>
+            <input type="text" formControlName="value" name="value" matInput />
+            </mat-form-field>
         </td>
+    </tr>
+    <tr formGroupName="taxExcludedRatingAmount">
         <td>
-        <mat-form-field>
-            <mat-label>Unit</mat-label>
-            <input type="text" formControlName="unit" name="unit" matInput />  
-        </mat-form-field>
+            <mat-form-field>
+                <mat-label>Unit</mat-label>
+                <input type="text" formControlName="unit" name="unit" matInput />  
+            </mat-form-field>
         </td>
     </tr>
     <tr>
@@ -98,16 +106,18 @@
     </tr>
     <tr formGroupName="taxIncludedRatingAmount">
         <td>
-        <mat-form-field>
-        <mat-label>Value</mat-label>
-        <input type="text" formControlName="value" name="value" matInput />  
-        </mat-form-field>
+            <mat-form-field>
+                <mat-label>Value</mat-label>
+                <input type="text" formControlName="value" name="value" matInput />  
+            </mat-form-field>
         </td>
+    </tr>
+    <tr formGroupName="taxIncludedRatingAmount">
         <td>
-        <mat-form-field>
-            <mat-label>Unit</mat-label>
-            <input type="text" formControlName="unit" name="unit" matInput />  
-        </mat-form-field>
+            <mat-form-field>
+                <mat-label>Unit</mat-label>
+                <input type="text" formControlName="unit" name="unit" matInput />  
+            </mat-form-field>
         </td>
     </tr>
     <tr>

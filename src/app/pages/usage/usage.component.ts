@@ -1,9 +1,11 @@
 import { UsageStatusType } from '../../shared/forms/usage.form';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { FormArray, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { getUsageForm } from 'src/app/shared/forms/usage.form';
 import { getRatedProductUsageForm } from 'src/app/shared/forms/ratedProductUsage.form';
 import { getRelatedParty } from 'src/app/shared/forms/relatedParty.form';
+import { getUsageCharacteristic } from 'src/app/shared/forms/usageCharacteristic.form';
+import { getUsageSpecificationRef } from 'src/app/shared/forms/usageSpecificationRef.form';
 
 @Component({
   selector: 'app-usage',
@@ -54,6 +56,34 @@ export class UsageComponent implements OnInit {
 
   removeRelatedParty(index: number): void {
     const formArray = this.form?.get('relatedParty') as FormArray;
+    formArray.removeAt(index);
+  }
+
+  get getUsageCharacteristic(): FormArray {
+    return this.form?.get('usageCharacteristic') as FormArray;
+  }
+
+  addNewUsageCharacteristic(): void {
+    const id = this.form?.get('usageCharacteristic') as FormArray;
+    id.push(getRelatedParty());
+  }
+
+  removeUsageCharacteristic(index: number): void {
+    const formArray = this.form?.get('usageCharacteristic') as FormArray;
+    formArray.removeAt(index);
+  }
+
+  get getUsageSpecificationRef(): FormArray {
+    return this.form?.get('usageSpecification') as FormArray;
+  }
+
+  addNewUsageSpecificationRef(): void {
+    const id = this.form?.get('usageSpecification') as FormArray;
+    id.push(getRelatedParty());
+  }
+
+  removeSpecificationRef(index: number): void {
+    const formArray = this.form?.get('usageSpecification') as FormArray;
     formArray.removeAt(index);
   }
 
