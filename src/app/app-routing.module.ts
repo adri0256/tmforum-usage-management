@@ -8,8 +8,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
   },
   {
-    path: 'form-test',
+    path: 'usage-form',
     loadChildren: () => import('./pages/usage/usage.module').then(m => m.UsageModule),
+  },
+  {
+    path: 'list',
+    loadChildren: () => import('./pages/list-usage/list-usage.module').then(m => m.ListUsageModule),
   },
   {
     path: '**',

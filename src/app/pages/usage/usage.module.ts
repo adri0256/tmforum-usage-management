@@ -1,3 +1,4 @@
+import { UsageCharacteristicModule } from './../usage-characteristic/usage-characteristic.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsageComponent } from './usage.component';
@@ -17,6 +18,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RatedProductUsageModule } from '../rated-product-usage/rated-product-usage.module';
 import { RelatedPartyModule } from '../related-party/related-party.module';
+import { UsageSpecificationModule } from '../usage-specification/usage-specification.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [UsageComponent],
@@ -37,7 +40,10 @@ import { RelatedPartyModule } from '../related-party/related-party.module';
     MatExpansionModule,
     MatNativeDateModule,
     RatedProductUsageModule,
-    RelatedPartyModule
+    RelatedPartyModule,
+    UsageCharacteristicModule,
+    UsageSpecificationModule,
+    MatDialogModule,
   ],
   exports: [UsageComponent],
 })

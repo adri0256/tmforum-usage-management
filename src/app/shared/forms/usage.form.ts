@@ -1,8 +1,4 @@
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
-import { getRatedProductUsageForm } from './ratedProductUsage.form';
-import { getRelatedParty } from './relatedParty.form';
-import { getUsageCharacteristic } from './usageCharacteristic.form';
-import { getUsageSpecificationRef } from './usageSpecificationRef.form';
 
 export enum UsageStatusType {
   received,
@@ -27,8 +23,8 @@ export function getUsageForm(): FormGroup {
     type: new FormControl(),
 
     ratedProductUsage: new FormArray([]),
-    relatedParty: new FormArray([getRelatedParty()]),
-    usageCharacteristic: new FormArray([getUsageCharacteristic()]),
-    usageSpecification: new FormArray([getUsageSpecificationRef()]),
+    relatedParty: new FormArray([]),
+    usageCharacteristic: new FormArray([]),
+    usageSpecification: new FormArray([]),
   });
 }

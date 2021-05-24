@@ -1,3 +1,4 @@
+import { Usage } from './../../shared/models/usage.model';
 import { UsageStatusType } from '../../shared/forms/usage.form';
 import { FormArray, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -6,6 +7,10 @@ import { getRatedProductUsageForm } from 'src/app/shared/forms/ratedProductUsage
 import { getRelatedParty } from 'src/app/shared/forms/relatedParty.form';
 import { getUsageCharacteristic } from 'src/app/shared/forms/usageCharacteristic.form';
 import { getUsageSpecificationRef } from 'src/app/shared/forms/usageSpecificationRef.form';
+import { FbBaseService } from 'src/app/services/fb-base.service';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-usage',
@@ -18,7 +23,11 @@ export class UsageComponent implements OnInit {
   enumKeys: any = [];
   usageEnum = UsageStatusType;
 
-  constructor() {}
+  constructor(
+      @Inject(MAT_DIALOG_DATA) public data: any,
+      private service: FbBaseService<Usage>,
+      public dialogRef: MatDialogRef<UsageComponent>
+    ) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -27,8 +36,10 @@ export class UsageComponent implements OnInit {
 
   initForm(): void {
     this.form = getUsageForm();
-    /*const idFormControl = this.form.get('id') as FormControl;
-    (idFormControl.get([0]) as FormGroup).controls.value.setValue('0');*/
+
+    if (this.data.editItem != null){
+      this.form.setValue(this.data.editItem);
+    }
   }
 
   get getRatedProductUsageForm(): FormArray {
@@ -65,7 +76,7 @@ export class UsageComponent implements OnInit {
 
   addNewUsageCharacteristic(): void {
     const id = this.form?.get('usageCharacteristic') as FormArray;
-    id.push(getRelatedParty());
+    id.push(getUsageCharacteristic());
   }
 
   removeUsageCharacteristic(index: number): void {
@@ -79,12 +90,24 @@ export class UsageComponent implements OnInit {
 
   addNewUsageSpecificationRef(): void {
     const id = this.form?.get('usageSpecification') as FormArray;
-    id.push(getRelatedParty());
+    id.push(getUsageSpecificationRef());
   }
 
   removeSpecificationRef(index: number): void {
     const formArray = this.form?.get('usageSpecification') as FormArray;
     formArray.removeAt(index);
+  }
+
+  save(): void {
+    if (this.form != null) {
+      if (this.data.editItem == null) {
+        this.service.add('usage', this.form.getRawValue()).then(id => { console.log(id); });
+        console.log('Added new item \n' + this.form?.value);
+      } else {
+        this.service.update('usage', this.data.editItem.id, this.form?.value);
+        console.log('Updated item \n' + this.form?.value);
+      }
+    }
   }
 
   log(): void {

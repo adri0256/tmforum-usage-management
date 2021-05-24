@@ -1,12 +1,14 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Add a new item</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item [routerLink]="[ '/form-test' ]">
-        <div mat-line>New item</div>
-      </mat-list-item>
-    </mat-list>
-  </mat-card-content>
-</mat-card>
+<app-container>
+  <div class="categories">
+    <mat-card [routerLink]="[ '/list' ]" matRipple>
+      <mat-card-content>
+        List all
+      </mat-card-content>
+    </mat-card>
+    <mat-card [routerLink]="[ '/usage-form' ]" matRipple>
+      <mat-card-content>
+        Add new item
+      </mat-card-content>
+    </mat-card>
+  </div>
+</app-container>

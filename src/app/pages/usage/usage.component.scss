@@ -13,3 +13,13 @@
     flex: 1;
   }
 }
+
+.scroll {
+  display: block;
+  height: 85vh;
+  overflow-y: auto;
+}
+
+.margin-right {
+  margin-right: .5vw;
+}

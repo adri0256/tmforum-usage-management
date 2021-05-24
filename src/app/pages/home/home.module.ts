@@ -14,10 +14,10 @@ import { MatListModule } from '@angular/material/list';
   ],
   imports: [
     CommonModule,
+    ContainerModule,
     HomeRoutingModule,
     MatCardModule,
     MatRippleModule,
-    ContainerModule,
     MatListModule
   ],
   exports: [HomeComponent]
