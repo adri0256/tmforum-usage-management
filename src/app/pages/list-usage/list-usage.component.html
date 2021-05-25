@@ -28,7 +28,7 @@
 
             <ng-container matColumnDef="usageDate">
                 <th mat-header-cell *matHeaderCellDef> Usage Date </th>
-                <td mat-cell *matCellDef="let element"> {{element.usageDate}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.usageDate.toDate() | date}} </td>
             </ng-container>
 
             <ng-container matColumnDef="actions">

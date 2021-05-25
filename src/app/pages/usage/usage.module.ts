@@ -19,7 +19,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { RatedProductUsageModule } from '../rated-product-usage/rated-product-usage.module';
 import { RelatedPartyModule } from '../related-party/related-party.module';
 import { UsageSpecificationModule } from '../usage-specification/usage-specification.module';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [UsageComponent],
@@ -44,6 +44,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     UsageCharacteristicModule,
     UsageSpecificationModule,
     MatDialogModule,
+  ],
+  providers: [
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} }
   ],
   exports: [UsageComponent],
 })

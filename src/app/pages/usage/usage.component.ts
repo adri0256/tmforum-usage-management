@@ -8,9 +8,8 @@ import { getRelatedParty } from 'src/app/shared/forms/relatedParty.form';
 import { getUsageCharacteristic } from 'src/app/shared/forms/usageCharacteristic.form';
 import { getUsageSpecificationRef } from 'src/app/shared/forms/usageSpecificationRef.form';
 import { FbBaseService } from 'src/app/services/fb-base.service';
-import { MatDialogRef } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-usage',
@@ -38,7 +37,39 @@ export class UsageComponent implements OnInit {
     this.form = getUsageForm();
 
     if (this.data.editItem != null){
-      this.form.setValue(this.data.editItem);
+      // setTimeout(() => {
+        for (let {} of this.data.editItem.relatedParty) {
+          this.addNewRelatedParty();
+        }
+        for (let {} of this.data.editItem.ratedProductUsage) {
+          this.addNewRatedProduct();
+        }
+        for (let {} of this.data.editItem.usageCharacteristic) {
+          this.addNewUsageCharacteristic();
+        }
+        for (let {} of this.data.editItem.usageSpecification) {
+          this.addNewUsageSpecificationRef();
+        }
+
+        if (this.form != null) {
+          this.form.setValue({
+            id: this.data.editItem.id,
+            description: this.data.editItem.description,
+            status: this.data.editItem.status,
+            href: this.data.editItem.href,
+            usageDate: this.data.editItem.usageDate.toDate(),
+            usageType: this.data.editItem.usageType,
+            baseType: this.data.editItem.baseType,
+            schemaLocation: this.data.editItem.schemaLocation,
+            type: this.data.editItem.type,
+
+            relatedParty: this.data.editItem.relatedParty,
+            ratedProductUsage: this.data.editItem.ratedProductUsage,
+            usageCharacteristic: this.data.editItem.usageCharacteristic,
+            usageSpecification: this.data.editItem.usageSpecification,
+          });
+        }
+      // }, );
     }
   }
 
@@ -46,9 +77,12 @@ export class UsageComponent implements OnInit {
     return this.form?.get('ratedProductUsage') as FormArray;
   }
 
-  addNewRatedProduct(): void {
+  addNewRatedProduct(index?: number, data?: any): void {
     const id = this.form?.get('ratedProductUsage') as FormArray;
     id.push(getRatedProductUsageForm());
+    if (index !== undefined && data !== undefined) {
+      id.insert(index, data);
+    }
   }
 
   removeRatedProduct(index: number): void {
@@ -60,9 +94,12 @@ export class UsageComponent implements OnInit {
     return this.form?.get('relatedParty') as FormArray;
   }
 
-  addNewRelatedParty(): void {
+  addNewRelatedParty(index?: number, data?: any): void {
     const id = this.form?.get('relatedParty') as FormArray;
     id.push(getRelatedParty());
+    if (index !== undefined && data !== undefined) {
+      id.insert(index, data);
+    }
   }
 
   removeRelatedParty(index: number): void {

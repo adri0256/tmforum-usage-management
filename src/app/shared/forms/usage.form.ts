@@ -1,4 +1,4 @@
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 export enum UsageStatusType {
   received,
@@ -13,11 +13,11 @@ export enum UsageStatusType {
 export function getUsageForm(): FormGroup {
   return new FormGroup({
     id: new FormControl(),
-    href: new FormControl(),
-    usageDate: new FormControl(),
-    description: new FormControl(),
-    usageType: new FormControl(),
-    status: new FormControl(),
+    href: new FormControl('', Validators.required),
+    usageDate: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
+    usageType: new FormControl('', Validators.required),
+    status: new FormControl('', Validators.required),
     baseType: new FormControl(),
     schemaLocation: new FormControl(),
     type: new FormControl(),

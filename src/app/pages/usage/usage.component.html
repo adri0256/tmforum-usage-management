@@ -1,4 +1,4 @@
-<app-container class="scroll" classes="container-1 flex" *ngIf="form" [formGroup]="form">
+<div class="scroll" *ngIf="form" [formGroup]="form">
   
   <!-- ID -->
   <mat-card class="margin-bottom margin-right">
@@ -33,10 +33,21 @@
         </tr>
         <tr>
           <td>
-            <mat-form-field class="max-width">
+            <mat-form-field appearance="fill" class="max-width">
               <mat-label>Usage Date</mat-label>
-              <input type="text" formControlName="usageDate" name="usageDate" matInput />
+              <input matInput [matDatepicker]="picker" format='yyyy-MM-dd' formControlName="usageDate">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <!-- <input type="text" formControlName="usageDate" name="usageDate" matInput /> -->
             </mat-form-field>
+
+            <!-- <mat-form-field appearance="fill" class="max-width">
+              <mat-label>Rating Date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="ratingDate">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field> -->
+
           </td>
         </tr>
         <tr>
@@ -210,4 +221,4 @@
 
   <!-- LOG -->
   <button mat-button (click)="log()">log</button>
-</app-container>
+</div>

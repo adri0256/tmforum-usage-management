@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { MatCardModule } from '@angular/material/card';
-import { MatRippleModule } from '@angular/material/core';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { ContainerModule } from 'src/app/shared/components/container/container.module';
 import { MatListModule } from '@angular/material/list';
 
@@ -18,7 +18,8 @@ import { MatListModule } from '@angular/material/list';
     HomeRoutingModule,
     MatCardModule,
     MatRippleModule,
-    MatListModule
+    MatListModule,
+    MatNativeDateModule
   ],
   exports: [HomeComponent]
 })
